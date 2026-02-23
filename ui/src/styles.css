@@ -594,6 +594,13 @@ button {
   color: var(--user-message-text);
 }
 
+/* Highlighted prompt (Ctrl+Up/Down navigation) */
+.message-user.prompt-highlighted .message-content {
+  outline: 2px solid var(--blue-text);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
 .message-agent .message-content,
 .message-tool .message-content {
   margin-right: auto;

@@ -717,7 +717,12 @@ function ChatInterface({
     }
 
     targetIdx = Math.max(0, Math.min(targetIdx, userMessageEls.length - 1));
-    userMessageEls[targetIdx].scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Remove highlight from all prompts, then add to target
+    userMessageEls.forEach((el) => el.classList.remove("prompt-highlighted"));
+    const targetEl = userMessageEls[targetIdx];
+    targetEl.classList.add("prompt-highlighted");
+    targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [navigateUserMessageTrigger]);
 
   // Load messages and set up streaming
